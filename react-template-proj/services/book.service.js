@@ -21,9 +21,9 @@ function query(filterBy = getDefaultFilter()) {
                 const regex = new RegExp(filterBy.title, 'i')
                 books = books.filter(book => regex.test(book.title))
             }
-            if (filterBy.listPrice.amount) {
+            if (filterBy.price) {
 
-                books = books.filter(book => book.listPrice.amount >= filterBy.listPrice.amount
+                books = books.filter(book => book.listPrice.amount >= filterBy.price
                 )
             }
             return books
@@ -50,7 +50,7 @@ function getEmptyBook(title = '', amount = 0) {
     return {
         id: '',
         title,
-        listPrice: [ amount ],
+        listPrice: [amount],
     }
 }
 
@@ -92,9 +92,11 @@ function _createBook(title) {
 }
 
 function getDefaultFilter() {
-    return { title: '', 
-    listPrice: { amount :0 } }
-    
+    return {
+        title: '',
+        price: 0
+    }
+
 
 }
 

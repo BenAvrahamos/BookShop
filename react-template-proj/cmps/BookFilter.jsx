@@ -37,9 +37,9 @@ export function BookFilter({onSetFilter,filterBy}) {
 
             <label htmlFor="listPrice">Price</label>
             <input type="number"
-                value={filterByToEdit.listPrice.amount}
+                value={filterByToEdit.price}
                 onChange={handleChange}
-                name="listPrice.amount"
+                name="price"
                 id="listPrice" />
 
             <button>Filter</button>
