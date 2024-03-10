@@ -7,6 +7,7 @@ import { BookFilter } from "./BookFilter.jsx"
 // import { BooksEdit } from "./BooksEdit.jsx"
 
 
+
 export function BookIndex() {
     const [books, setBooks] = useState(null)
     const [selectedBook, setSelectedBook] = useState(null)
@@ -25,9 +26,9 @@ export function BookIndex() {
         loadBooks()
     }, [filterBy])
 
-    function onSelectBook(book) {
+    function onSelectBook(book, index) {
         setSelectedBook(book)
-        console.log(book);
+
     }
 
     function loadBooks() {
@@ -61,6 +62,8 @@ export function BookIndex() {
 
         {selectedBook && <BookDetails
             book={selectedBook}
+            index={books.findIndex(book => book === selectedBook)}
+        
             onGoBack={() => onSelectBook(null)}
         />
 
