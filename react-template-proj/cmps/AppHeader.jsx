@@ -1,20 +1,27 @@
+const { Link, NavLink } = ReactRouterDOM
+const { useNavigate } = ReactRouter
 
+export function AppHeader() {
 
-export function AppHeader({setPage}){
+    const navigate = useNavigate()
 
-    function onSetPage(ev, page) {
-		ev.preventDefault()
-		setPage(page)
-	}
-    return <header className ="flex justify-between">
-        <h1>The BookShop</h1>
-        
+    function onGoHome() {
+        navigate('/')
+    }
+
+    return <header className="flex justify-between">
+        <h1 onClick={onGoHome}>The BookShop</h1>
+
         <nav >
-            <a href=""onClick={(ev => onSetPage(ev,'home'))} >Home</a> |
-            <a href=""onClick={(ev => onSetPage(ev,'about'))} >About</a>|
-            <a href=""onClick={(ev => onSetPage(ev,'books'))} >Browse Books</a>
+
+            <NavLink to="/">Home</NavLink>
+            |
+            <NavLink to="/about">about</NavLink>
+            |
+            <NavLink to="/Books">Books</NavLink>
+
         </nav>
 
-    </header>
+    </header >
 
 }

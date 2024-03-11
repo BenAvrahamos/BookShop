@@ -3,21 +3,17 @@ const { useState, useEffect } = React
 import { bookService } from "../services/book.service.js";
 
 
-export function BookFilter({onSetFilter,filterBy}) {
+export function BookFilter({ onSetFilter, filterBy }) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
-
-
-
 
     function handleChange({ target }) {
         let { value, name: field, type } = target
         console.log(field);
         setFilterByToEdit(prevFilterBy =>
             ({ ...prevFilterBy, [field]: value }))
-            
 
     }
-    function onFilter(ev){
+    function onFilter(ev) {
         ev.preventDefault()
         onSetFilter(filterByToEdit)
 
@@ -34,7 +30,6 @@ export function BookFilter({onSetFilter,filterBy}) {
                 name="title"
                 id="title" />
 
-
             <label htmlFor="listPrice">Price</label>
             <input type="number"
                 value={filterByToEdit.price}
@@ -44,12 +39,8 @@ export function BookFilter({onSetFilter,filterBy}) {
 
             <button>Filter</button>
 
-
-
         </form>
 
-
     </section>
-
 
 }
