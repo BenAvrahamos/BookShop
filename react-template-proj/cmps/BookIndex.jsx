@@ -1,36 +1,25 @@
 const { useState, useEffect } = React
+const { Link } = ReactRouterDOM
 
 import { bookService } from "../services/book.service.js";
 import { BookList } from "./BookList.jsx"
-// import { BookDetails } from "./BookDetails.jsx"
 import { BookFilter } from "./BookFilter.jsx"
-// import { BooksEdit } from "./BooksEdit.jsx"
-
 
 
 export function BookIndex() {
     const [books, setBooks] = useState(null)
     const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
 
-    function onAddBook(ev) {
-        ev.preventDefault()
-        console.log(ev);
-    }
+
 
     useEffect(() => {
         loadBooks()
     }, [filterBy])
 
-    function onSelectBook(book, index) {
-        setSelectedBook(book)
-
-    }
-
     function loadBooks() {
         bookService.query(filterBy)
             .then((books) => {
                 setBooks(books)
-
             })
     }
 
@@ -48,12 +37,12 @@ export function BookIndex() {
                 filterBy={filterBy}
                 onSetFilter={onSetFilter}
             />
+            <Link to="/book/edit"><button>Add a Book</button></Link>
             <BookList
                 books={books}
-                onSelectBook={onSelectBook} />
-            {/* <BooksEdit
-                onAddBook={onAddBook} /> */}
+                 />
         </React.Fragment>
+
     </section>
 
 }

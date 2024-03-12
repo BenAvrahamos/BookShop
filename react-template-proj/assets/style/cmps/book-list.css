@@ -1,0 +1,15 @@
+.book-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1em;
+}
+
+
+.book-list li{
+    border: black solid 2px;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+

@@ -445,4 +445,3 @@ const books = [
   }
 ]
 
-bookService.saveToStorage(BookTwoDB, books)

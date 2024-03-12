@@ -6,6 +6,7 @@ import { AppHeader } from './cmps/AppHeader.jsx'
 import { About } from './cmps/About.jsx'
 import { BookIndex } from './cmps/BookIndex.jsx'
 import { BookDetails } from './cmps/BookDetails.jsx'
+import { BookEdit } from './cmps/BookEdit.jsx'
 
 
 const { useState, useEffect } = React
@@ -23,6 +24,8 @@ export function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/books" element={<BookIndex />} />
                     <Route path="/book/:bookId" element={<BookDetails />} />
+                    <Route path="/book/edit"  element={<BookEdit />} />
+                    <Route path="/books/book/edit:bookId"  element={<BookEdit />} />
 
                 </Routes>
                 {/* {page === 'home' && <Home />}

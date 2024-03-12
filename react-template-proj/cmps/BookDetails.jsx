@@ -28,7 +28,6 @@ export function BookDetails() {
             })
     }
 
-
     useEffect(() => {
         if (btnState) {
             setTextLength(txtLength = -1)
@@ -64,7 +63,6 @@ export function BookDetails() {
         }
     }
 
-
     if (!book) return <div>Loading details...</div>
     return <section className="book-details">
         <h2 className="book-title">{book.title}| by {book.authors}</h2>
@@ -82,6 +80,7 @@ export function BookDetails() {
             <button onClick={() => setBtnState(prevState => prevState = !prevState)}>{btnText}</button>
         </h3>
 
+        <Link to={`/books/book/edit${book.id}`}> <button>Edit Book</button></Link>
         <Link to="/books"><button>Return to Books</button></Link>
 
     </section>

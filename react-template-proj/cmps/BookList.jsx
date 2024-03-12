@@ -7,8 +7,12 @@ export function BookList({ books }) {
         <ul className="book-list">
             {books.map((book, index) => (
                 <li key={book.id}>
-                    <BookPreview book={book} />
+                    <BookPreview 
+                    book={book}
+                    index={index}
+                     />
                     <Link to={`/book/${book.id}`}> <button>Select Book</button></Link>
+                    <Link to={`/books/book/edit${book.id}`}> <button>Edit Book</button></Link>
                 </li>
             ))}
         </ul>

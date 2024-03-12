@@ -13,13 +13,11 @@ export function AppHeader() {
         <h1 onClick={onGoHome}>The BookShop</h1>
 
         <nav >
-
             <NavLink to="/">Home</NavLink>
             |
             <NavLink to="/about">about</NavLink>
             |
-            <NavLink to="/Books">Books</NavLink>
-
+            <NavLink to="/books">Books</NavLink>
         </nav>
 
     </header >
